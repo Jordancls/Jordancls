@@ -1,7 +1,7 @@
 <h1 align="center">Oi 👋, Eu sou o Jordan Cesar</h1>
 <h3 align="center">Apaixonado por ciências e análise de dados no mundo digital</h3>
 
-- 🔭 Atualmente estou trabalhando com análise e exploração de dados [Analise Graduação](https://github.com/Jordancls/Analise_exploratoria_graduacao.git)
+- 🔭 Atualmente estou trabalhando com Estudo de Caso de RH [Analise_de_Funcionários](https://github.com/Jordancls/Departamento_RH.git)
 
 - 🌱 Atualmente estou aprendendo **Python e Machine Learning**
 
