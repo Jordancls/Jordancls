@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+  api:
+    build: ./backend
+    container_name: sg-indicadores-api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=${DATABASE_URL:-sqlite:///./sg.db}
+      - SECRET_KEY=${SECRET_KEY:-changeme}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES:-30}
+      - REFRESH_TOKEN_EXPIRE_DAYS=${REFRESH_TOKEN_EXPIRE_DAYS:-7}
+      - ENV=${ENV:-docker}
+    volumes:
+      - ./backend/app:/app/app
+      - ./backend/.env:/app/.env:ro
+    depends_on: []
+
+  web:
+    build: ./frontend
+    container_name: sg-indicadores-web
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_BASE=http://localhost:8000/api/v1
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - api
+
+networks:
+  default:
+    name: sg-indicadores-net
